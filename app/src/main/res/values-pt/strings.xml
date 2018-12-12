@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calls">Últimas ligações</string>
+    <string name="last_sms">Últimos SMS</string>
+    <string name="number_of_lines">Número de linhas</string>
+    <string name="dont_ask_again">Não pergunte novamente</string>
+    <string name="calls_truncate">Remover nome dos contatos</string>
+    <string name="call">Discar</string>
+    <string name="calls_confirmation">Confirmar ligações</string>
+    <string name="calls_truncate_summary">Os nomes dos assinantes serão reduzidos para 10 caracteres</string>
+    <string name="calls_confirmation_summary">Antes de fazer uma chamada, uma janela de confirmação aparecerá na tela</string>
+    <string name="calls_show_unknown">Mostrar números desconhecidos</string>
+    <string name="update_on_resume">Atualize o widget ao retornar à área de trabalho</string>
+    <string name="update_on_resume_summary">O widget será atualizado à força quando você retornar ao AIO Launcher de outro aplicativo</string>
+    <string name="sms">SMS</string>
+    <string name="invalid_action">Ação inválida</string>
+    <string name="no_uid_error">Erro: nenhum UID</string>
+    <string name="new_version_available">Nova versão disponível: %1$s</string>
+    <string name="click_to_download">Clique para fazer o download</string>
+    <string name="warning">Aviso</string>
+    <string name="cancel">Cancelar</string>
+    <string name="open_settings">Abrir configurações</string>
+    <string name="chinese_pm_warning">Você usa um smartphone com um sistema que suprime o trabalho de aplicativos em segundo plano. Por esse motivo, o plug-in AIO não funciona corretamente. Clique em "Abrir Configurações" e adicione o plugin à lista de exceções.</string>
+    <string name="hostname">Nome de anfitrião</string>
+    <string name="port">Porta</string>
+    <string name="user">Do utilizador</string>
+    <string name="password">Senha</string>
+    <string name="close">Fechar</string>
+    <string name="done">Feito</string>
+    <string name="settings">Definições</string>
+    <string name="add_command">Adicionar comando</string>
+    <string name="add_command_summary">Toque para adicionar o comando</string>
+    <string name="commands">Comandos</string>
+    <string name="name_">Nome:</string>
+    <string name="command_">Comando:</string>
+    <string name="save">Salve </string>
+    <string name="delete">Excluir</string>
+    <string name="show_result">Mostrar resultado</string>
+</resources>

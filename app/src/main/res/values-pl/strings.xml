@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="calls">Połączenia</string>
+    <string name="last_sms">Wiadomości</string>
+    <string name="number_of_lines">Ilość wierszy</string>
+    <string name="dont_ask_again">Nie pytaj ponownie</string>
+    <string name="calls_truncate">Skróć nazwy kontaktów</string>
+    <string name="call">Wybierz numer</string>
+    <string name="calls_confirmation">Potwierdź połączenia</string>
+    <string name="calls_truncate_summary">Nazwy subskrybentów zostaną skrócone do 10 znaków</string>
+    <string name="calls_confirmation_summary">Przed połączeniem zostanie wyświetlone okno potwierdzenia</string>
+    <string name="calls_show_unknown">Pokaż niezapisane numery</string>
+    <string name="update_on_resume">Widget zostanie odświerzony po powrocie do ekranu domowego</string>
+    <string name="update_on_resume_summary">Widget zostanie odświerzony po powrocie z innej aplikacji</string>
+    <string name="sms">SMS</string>
+    <string name="invalid_action">Nieprawidłowa czynność</string>
+    <string name="no_uid_error">Błąd: brak identyfikatora UID</string>
+    <string name="new_version_available">Dostępna jest nowa wersja: %1$s</string>
+    <string name="click_to_download">Kliknij, aby pobrać</string>
+    <string name="warning">Ostrzeżenie</string>
+    <string name="cancel">Anuluj</string>
+    <string name="open_settings">Otwórz ustawienia</string>
+    <string name="chinese_pm_warning">Używasz smartfona z systemem, który tłumi pracę aplikacji działających w tle. Z tego powodu wtyczka AIO nie działa poprawnie. Kliknij "Otwórz ustawienia" i dodaj wtyczkę do listy wyjątków.</string>
+    <string name="hostname">Nazwa hosta</string>
+    <string name="port">Port</string>
+    <string name="user">Użytkownik</string>
+    <string name="password">Hasło</string>
+    <string name="close">Zamknąć</string>
+    <string name="done">Gotowe</string>
+    <string name="settings">Ustawienia</string>
+    <string name="add_command">Dodaj polecenie</string>
+    <string name="add_command_summary">Stuknij, aby dodać polecenie</string>
+    <string name="commands">Polecenia</string>
+    <string name="name_">Imię:</string>
+    <string name="command_">Dowództwo:</string>
+    <string name="save">Zapisać</string>
+    <string name="delete">Kasować</string>
+    <string name="show_result">Pokaż wynik</string>
+</resources>
