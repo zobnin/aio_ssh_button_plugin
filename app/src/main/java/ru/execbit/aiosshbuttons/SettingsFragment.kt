@@ -34,7 +34,7 @@ class SettingsFragment : PreferenceFragment(), SharedPreferences.OnSharedPrefere
         findPreference("host")?.summary = Settings.host
         findPreference("port")?.summary = Settings.port
         findPreference("user")?.summary = Settings.user
-        findPreference("password")?.summary = Settings.password
+        findPreference("password")?.summary = "********"
     }
 
     private fun addCommandsToScreen() {
