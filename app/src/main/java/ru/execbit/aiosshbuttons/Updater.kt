@@ -18,7 +18,7 @@ object Updater {
         val versionCode: Int
     )
 
-    private const val REPO_HOST = "http://execbit.ru/aiolauncher/"
+    private const val REPO_HOST = "https://execbit.ru/aiolauncher/"
     private val PKG_URL = REPO_HOST + App.PACKAGE_NAME + ".apk"
     private val META_URL = REPO_HOST + App.PACKAGE_NAME + ".meta"
 
@@ -49,19 +49,24 @@ object Updater {
     }
 
     private fun getPluginMeta(): PluginMeta? {
-        val request = Request.Builder()
-            .url(META_URL)
-            .build()
+        try {
+            val request = Request.Builder()
+                .url(META_URL)
+                .build()
 
-        val okHttpClient = OkHttpClient.Builder()
+            val okHttpClient = OkHttpClient.Builder()
                 .retryOnConnectionFailure(false)
                 .build()
 
-        okHttpClient.newCall(request).execute().body()?.let {
-            return parseJson(it.string())
-        }
+            okHttpClient.newCall(request).execute().body()?.let {
+                return parseJson(it.string())
+            }
 
-        return null
+            return null
+        } catch (e: Exception) {
+            e.printStackTrace()
+            return null
+        }
     }
 
     private fun showNotification(context: Context, meta: PluginMeta) {
