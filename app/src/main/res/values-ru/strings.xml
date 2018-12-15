@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="calls">Последние звонки</string>
-    <string name="last_sms">Последние СМС</string>
-    <string name="number_of_lines">Количество строк</string>
-    <string name="dont_ask_again">Больше не спрашивать</string>
-    <string name="calls_truncate">Сокращать имена абонентов</string>
-    <string name="call">Позвонить</string>
-    <string name="calls_confirmation">Подтверждать звонки</string>
-    <string name="calls_truncate_summary">Имена абонентов будут сокращены до 10 символов</string>
-    <string name="calls_confirmation_summary">Перед выполнением звонка на экране будет появляться окно подтверждения</string>
-    <string name="calls_show_unknown">Показывать неизвестные номера</string>
-    <string name="update_on_resume">Обновлять виджет при возврате на рабочий стол</string>
-    <string name="update_on_resume_summary">Виджет будет принудительно обновлен когда вы вернетесь в AIO Launcher из другого приложения</string>
-    <string name="sms">СМС</string>
-    <string name="invalid_action">Недействительное действие</string>
-    <string name="no_uid_error">Ошибка: нет UID</string>
     <string name="new_version_available">Доступна новая версия: %1$s</string>
     <string name="click_to_download">Нажмите, чтобы скачать</string>
-    <string name="warning">Предупреждение</string>
     <string name="cancel">Отменить</string>
-    <string name="open_settings">Открыть настройки</string>
-    <string name="chinese_pm_warning">Вы используете смартфон, который подавляет работу фоновых приложений. По этой причине плагин может работать неправильно. Нажмите «Открыть настройки» и добавьте плагин в список исключений.</string>
     <string name="hostname">Имя хоста</string>
     <string name="port">Порт</string>
     <string name="user">Пользователь</string>

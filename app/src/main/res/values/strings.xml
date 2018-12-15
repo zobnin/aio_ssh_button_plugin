@@ -1,27 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name" translatable="false">AIO SSH Buttons Plugin</string>
-    <string name="calls">Last calls</string>
-    <string name="last_sms">Last SMS</string>
-    <string name="number_of_lines">Number of lines</string>
-    <string name="dont_ask_again">Don\'t ask again</string>
-    <string name="calls_truncate">Truncate callers names</string>
-    <string name="call">Dial</string>
-    <string name="calls_confirmation">Confirm calls</string>
-    <string name="calls_truncate_summary">Subscriber names will be reduced to 10 characters</string>
-    <string name="calls_confirmation_summary">Before making a call, a confirmation window will appear on the screen</string>
-    <string name="calls_show_unknown">Show unknown numbers</string>
-    <string name="update_on_resume">Update widget when returning to the desktop</string>
-    <string name="update_on_resume_summary">Widget will be forcibly updated when you return to the AIO Launcher from another application</string>
-    <string name="sms">SMS</string>
-    <string name="invalid_action">Invalid action</string>
-    <string name="no_uid_error">Error: No UID</string>
     <string name="new_version_available">New version available: %1$s</string>
     <string name="click_to_download">Click to download</string>
-    <string name="warning">Warning</string>
     <string name="cancel">Cancel</string>
-    <string name="open_settings">Open settings</string>
-    <string name="chinese_pm_warning">You use a smartphone with a system that suppress the work of background applications. For this reason, the AIO Plugin can not work properly. Click "Open Settings" and add plugin to the list of exceptions.</string>
     <string name="hostname">Host name</string>
     <string name="port">Port</string>
     <string name="user">User</string>

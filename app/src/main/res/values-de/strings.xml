@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="calls">Letzte Anrufe</string>
-    <string name="last_sms">Letzte SMS</string>
-    <string name="number_of_lines">Anzahl Zeilen</string>
-    <string name="dont_ask_again">Nicht noch einmal fragen</string>
-    <string name="calls_truncate">Anrufer-Namen abkürzen</string>
-    <string name="call">Wähle</string>
-    <string name="calls_confirmation">Anrufe bestätigen</string>
-    <string name="calls_truncate_summary">Namen von Anrufern werden auf 10 Zeichen verkürzt</string>
-    <string name="calls_confirmation_summary">Vor einem Anruf wird ein Bestätigungsfenster angezeigt</string>
-    <string name="calls_show_unknown">Anrufe von unbek. Nummern anzeigen</string>
-    <string name="update_on_resume">Widget aktualisieren bei Rückkehr</string>
-    <string name="update_on_resume_summary">Das Widget wird zum Update gezwungen, wenn du zum AIO Launcher aus einer anderen App zurückkehrst.</string>
-    <string name="sms">SMS</string>
-    <string name="invalid_action">Ungültige Aktion</string>
-    <string name="no_uid_error">Fehler: Keine UID</string>
     <string name="new_version_available">Neue Version verfügbar: %1$s</string>
     <string name="click_to_download">Klicken Sie hier zum Herunterladen</string>
-    <string name="warning">Warnung</string>
     <string name="cancel">Stornieren</string>
-    <string name="open_settings">Einstellungen öffnen</string>
-    <string name="chinese_pm_warning">Sie verwenden ein Smartphone mit einem System, das die Arbeit von Hintergrundanwendungen unterdrückt. Aus diesem Grund kann das AIO-Plugin nicht ordnungsgemäß funktionieren. Klicken Sie auf "Einstellungen öffnen" und fügen Sie der Liste der Ausnahmen ein Plugin hinzu.</string>
     <string name="hostname">Hostname</string>
     <string name="port">Hafen</string>
     <string name="user">Nutzer</string>

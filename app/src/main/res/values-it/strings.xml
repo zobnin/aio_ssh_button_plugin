@@ -1,28 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="calls">Ultime chiamate</string>
-    <string name="last_sms">Ultimi SMS</string>
-    <string name="number_of_lines">Numero di linee</string>
-    <string name="dont_ask_again">Non chiedere di nuovo</string>
-    <string name="calls_truncate">Tronca il nome dei chiamanti</string>
-    <string name="call">Componi</string>
-    <string name="calls_confirmation">Conferma chiamate</string>
-    <string name="calls_truncate_summary">I nomi dei subscriber saranno ridotti a 10 caratteri</string>
-    <string name="calls_confirmation_summary">Prima di fare una chiamata, una finestra di conferma apparirà sullo schermo</string><![CDATA[
+<resources><![CDATA[
 
-        ]]>
-    <string name="calls_show_unknown">Mostra numeri sconosciuti</string>
-    <string name="update_on_resume">Aggiorna il widget quando torni al desktop</string>
-    <string name="update_on_resume_summary">Forza l\'aggiornamento del widget quando si torna all \'AIO Launcher</string>
-    <string name="sms">SMS</string>
-    <string name="invalid_action">Azione non valida</string>
-    <string name="no_uid_error">Errore: nessun UID</string>
+
+
+
+
+
+
+
+
+
+        
+    ]]>
     <string name="new_version_available">Nuova versione disponibile: %1$s</string>
     <string name="click_to_download">Clicca per scaricare</string>
-    <string name="warning">avvertimento</string>
     <string name="cancel">Annulla</string>
-    <string name="open_settings">Apri le impostazioni</string>
-    <string name="chinese_pm_warning">Si utilizza uno smartphone con un sistema che sopprime il lavoro delle applicazioni in background. Per questo motivo, il plug-in AIO non può funzionare correttamente. Fai clic su "Apri impostazioni" e aggiungi il plugin all\'elenco delle eccezioni.</string>
     <string name="hostname">Nome host</string>
     <string name="port">Porta</string>
     <string name="user">Utente</string>

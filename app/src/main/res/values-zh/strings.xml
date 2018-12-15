@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="calls">最近通话</string>
-    <string name="last_sms">最近信息</string>
-    <string name="number_of_lines">显示行数</string>
-    <string name="dont_ask_again">不要再问我</string>
-    <string name="calls_truncate">截短来电者姓名</string>
-    <string name="call">拨号</string>
-    <string name="calls_confirmation">确认拨号</string>
-    <string name="calls_truncate_summary">订阅者姓名将被缩减到10个字符以内</string>
-    <string name="calls_confirmation_summary">呼叫之前会弹出确认窗口</string>
-    <string name="calls_show_unknown">显示未知号码</string>
-    <string name="update_on_resume">返回主屏时更新微件</string>
-    <string name="update_on_resume_summary">当从其他应用中返回主屏时微件将会更新</string>
-    <string name="sms">发送信息</string>
-    <string name="invalid_action">行动无效</string>
-    <string name="no_uid_error">错误：没有UID</string>
     <string name="new_version_available">新版本：%1$s</string>
     <string name="click_to_download">点击下载</string>
-    <string name="warning">警告</string>
     <string name="cancel">取消</string>
-    <string name="open_settings">打开设置</string>
-    <string name="chinese_pm_warning">您使用具有抑制后台应用程序工作的系统的智能手机。 因此，AIO插件无法正常工作。 单击“打开设置”并将插件添加到例外列表中。</string>
     <string name="hostname">主机名</string>
     <string name="port">港口</string>
     <string name="user">用户</string>

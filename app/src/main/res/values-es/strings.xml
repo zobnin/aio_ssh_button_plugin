@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="calls">Últimas llamadas</string>
-    <string name="last_sms">Últimos SMS</string>
-    <string name="number_of_lines">Numero de líneas</string>
-    <string name="dont_ask_again">No preguntar otra vez</string>
-    <string name="calls_truncate">Truncar el nombre de los contactos</string>
-    <string name="call">Marcar</string>
-    <string name="calls_confirmation">Confirmar llamadas</string>
-    <string name="calls_truncate_summary">El nombre de los contactos se reducirá a 10 caracteres</string>
-    <string name="calls_confirmation_summary">Antes de hacer una llamada, se abrirá una ventana de confirmación en pantalla</string>
-    <string name="calls_show_unknown">Mostrar números desconocidos</string>
-    <string name="update_on_resume">Actualice el widget cuando regrese al escritorio</string>
-    <string name="update_on_resume_summary">El widget se actualizará a la fuerza cuando regrese al iniciador de AIO desde otra aplicación</string>
-    <string name="sms">Enviar</string>
-    <string name="invalid_action">Acción no válida</string>
-    <string name="no_uid_error">Error: No UID</string>
     <string name="new_version_available">Nueva versión disponible: %1$s</string>
     <string name="click_to_download">Haga clic para descargar</string>
-    <string name="warning">Advertencia</string>
     <string name="cancel">Cancelar</string>
-    <string name="open_settings">Configuración abierta</string>
-    <string name="chinese_pm_warning">Utiliza un teléfono inteligente con un sistema que suprime el trabajo de las aplicaciones en segundo plano. Por esta razón, el complemento AIO no puede funcionar correctamente. Haga clic en "Abrir configuración" y agregue el complemento a la lista de excepciones.</string>
     <string name="hostname">Nombre de host</string>
     <string name="port">Puerto</string>
     <string name="user">Usuario</string>
