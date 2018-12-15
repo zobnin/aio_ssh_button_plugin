@@ -10,7 +10,9 @@ import com.jcraft.jsch.Session
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import ru.execbit.aiolauncher.models.*
+import ru.execbit.aiolauncher.models.PluginAction
+import ru.execbit.aiolauncher.models.PluginIntentActions
+import ru.execbit.aiolauncher.models.PluginResult
 import ru.execbit.aiolauncher.plugin.*
 import java.io.ByteArrayOutputStream
 import java.util.*
@@ -42,13 +44,6 @@ class PluginReceiver : BroadcastReceiver() {
                 when (action.context) {
                     "tap" -> processTapAction(context, action)
                     else -> {
-                        /*
-                        val result = PluginResult(
-                            from = cn,
-                            data = PluginError(4, "Invalid action")
-                        )
-                        context.sendPluginResult(result)
-                        */
                     }
                 }
             } catch (e: Exception) {
@@ -95,39 +90,49 @@ class PluginReceiver : BroadcastReceiver() {
             channel.disconnect()
 
             if (cmd.showResult) {
-                context.sendPluginResult(
-                    PluginResult(
-                        from = cn,
-                        data = PluginDialog(
-                            title = cmd.cmd,
-                            text = stream.toString(),
-                            bottomButtons = listOf(
-                                PluginButton(
-                                    text = context.getString(R.string.close),
-                                    id = 0
-                                )
-                            )
-                        )
-                    )
-                )
+                sendCommandOutput(context, cmd, stream.toString())
             } else {
                 context.sendPluginResult(
-                    PluginResult(
-                        from = cn,
-                        data = PluginMessage(context.getString(R.string.done))
-                    )
+                    pluginResult {
+                        from = cn
+                        message { text = context.getString(R.string.done) }
+                    }
                 )
             }
         } catch (e: Exception) {
             e.printStackTrace()
-            val result = PluginResult(
-                from = cn,
-                data = PluginError(2, e.toString())
+
+            context.sendPluginResult(
+                pluginResult {
+                    from = cn
+                    error {
+                        errorCode = 2
+                        errorText = e.toString()
+                    }
+                }
             )
-            context.sendPluginResult(result)
         } finally {
             session?.disconnect()
         }
+    }
+
+    private fun sendCommandOutput(context: Context, cmd: Command, output: String) {
+        context.sendPluginResult(
+            pluginResult {
+                from = cn
+                dialog {
+                    title = cmd.cmd
+                    text = output
+
+                    buttons {
+                        button {
+                            text = context.getString(R.string.close)
+                            id = 0
+                        }
+                    }
+                }
+            }
+        )
     }
 
     private fun processGetData(context: Context, intent: Intent) {
@@ -151,40 +156,33 @@ class PluginReceiver : BroadcastReceiver() {
 
     private fun generateResult(context: Context): PluginResult {
         val commandObjects = Settings.getCommandsObjects()
-        if (commandObjects.isEmpty()) {
-            return PluginResult(
-                from = cn,
-                data = PluginButtons(emptyList())
-            )
-        }
 
         try {
             val ids = generateIds(commandObjects.size)
-            val buttons = mutableListOf<PluginButton>()
-
-            commandObjects.forEachIndexed { idx, cmd ->
-                val button = PluginButton(
-                    text = cmd.name,
-                    clickable = true,
-                    id = ids[idx]
-                )
-                buttons.add(button)
-            }
-
             Settings.commandIds = idsToString(ids)
 
-            return PluginResult(
-                from = cn,
-                data = PluginButtons(buttons)
-            )
-
+            return pluginResult {
+                from = cn
+                buttons {
+                    commandObjects.forEachIndexed { idx, cmd ->
+                        button {
+                            text = cmd.name
+                            clickable = true
+                            id = ids[idx]
+                        }
+                    }
+                }
+            }
         } catch (e: Exception) {
             e.printStackTrace()
 
-            return PluginResult(
-                from = cn,
-                data = PluginError(2, e.toString())
-            )
+            return pluginResult {
+                from = cn
+                error {
+                    errorCode = 2
+                    errorText = e.toString()
+                }
+            }
         }
     }
 
