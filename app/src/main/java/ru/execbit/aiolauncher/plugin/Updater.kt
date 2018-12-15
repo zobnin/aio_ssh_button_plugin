@@ -1,4 +1,4 @@
-package ru.execbit.aiosshbuttons
+package ru.execbit.aiolauncher.plugin
 
 import android.app.Notification
 import android.app.NotificationManager
@@ -9,6 +9,9 @@ import android.net.Uri
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
+import ru.execbit.aiosshbuttons.App
+import ru.execbit.aiosshbuttons.R
+import ru.execbit.aiosshbuttons.Settings
 import java.util.*
 
 object Updater {
