@@ -167,7 +167,7 @@ class PluginReceiver : BroadcastReceiver() {
                     commandObjects.forEachIndexed { idx, cmd ->
                         button {
                             text = cmd.name
-                            clickable = true
+                            clickAnimation = true
                             id = ids[idx]
                         }
                     }

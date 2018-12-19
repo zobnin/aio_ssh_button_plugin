@@ -34,6 +34,7 @@ data class PluginLines(
     val lines: List<PluginLine>,
     val maxLines: Int = 3,
     val foldable: Boolean = true,
+    val privateModeSupport: Boolean = false,
     // Not used
     val showDots: Boolean = false
 ): Parcelable
@@ -42,7 +43,8 @@ data class PluginLines(
 data class PluginButtons(
     val buttons: List<PluginButton>,
     val maxLines: Int = 3,
-    val foldable: Boolean = true
+    val foldable: Boolean = true,
+    val privateModeSupport: Boolean = false
 ): Parcelable
 
 @Parcelize
@@ -74,9 +76,11 @@ data class PluginButton(
         // Not implemented yet
         val textColor: Int = 0,
         val backgroundColor: Int = 0,
+        // Not implemented yet, used only by regular buttons
+        val badge: Int = 0,
         // Not implemented yet
         val extra: String = "",
-        val clickable: Boolean = false,
+        val clickAnimation: Boolean = false,
         val id: Int
 ): Parcelable
 

@@ -57,6 +57,7 @@ class ResultButtonsBuilder {
     var buttons = mutableListOf<PluginButton>()
     var maxLines = 3
     var foldable = true
+    var privateModeSupport = false
 
     fun button(lambda: PluginButtonBuilder.() -> Unit) {
         buttons.add(PluginButtonBuilder().apply(lambda).build())
@@ -65,7 +66,8 @@ class ResultButtonsBuilder {
     fun build() = PluginButtons(
         buttons = buttons,
         maxLines = maxLines,
-        foldable = foldable
+        foldable = foldable,
+        privateModeSupport = privateModeSupport
     )
 }
 
@@ -84,8 +86,9 @@ class PluginButtonBuilder {
     var icon: Bitmap? = null
     var textColor: Int = 0
     var backgroundColor: Int = 0
+    var badge: Int = 0
     var extra: String = ""
-    var clickable: Boolean = false
+    var clickAnimation: Boolean = false
     var id: Int = 0
 
     fun build() = PluginButton(
@@ -93,8 +96,9 @@ class PluginButtonBuilder {
         icon = icon,
         textColor = textColor,
         backgroundColor = backgroundColor,
+        badge = badge,
         extra = extra,
-        clickable = clickable,
+        clickAnimation = clickAnimation,
         id = id
     )
 }
