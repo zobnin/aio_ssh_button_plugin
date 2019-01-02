@@ -87,10 +87,7 @@ class SettingsFragment : PreferenceFragment(), SharedPreferences.OnSharedPrefere
                     textView { setText(R.string.command_) }
                     cmdView = editText {
                         setText(cmdObj?.cmd ?: "")
-                        inputType = if (BuildConfig.DEBUG)
-                            InputType.TYPE_TEXT_VARIATION_FILTER
-                        else
-                            InputType.TYPE_CLASS_TEXT or InputType.TYPE_TEXT_VARIATION_PASSWORD
+                        inputType = InputType.TYPE_TEXT_VARIATION_FILTER
                     }
 
                     showResultCheckBox = checkBox {
