@@ -91,10 +91,19 @@ class SettingsFragment : PreferenceFragment(), SharedPreferences.OnSharedPrefere
                         inputType = InputType.TYPE_TEXT_VARIATION_FILTER
                     }
 
+                    nameView?.post {
+                        nameView?.setSelection(nameView?.text?.length ?: 0)
+                    }
+
                     textView { setText(R.string.command_) }
                     cmdView = editText {
                         setText(cmdObj?.cmd ?: "")
+                        setSelection(this.text.length)
                         inputType = InputType.TYPE_TEXT_VARIATION_FILTER
+                    }
+
+                    cmdView?.post {
+                        cmdView?.setSelection(cmdView?.text?.length ?: 0)
                     }
 
                     showResultCheckBox = checkBox {
