@@ -62,6 +62,13 @@ class SettingsFragment : PreferenceFragment(), SharedPreferences.OnSharedPrefere
         commandsCategory.removePreference(cmdObj.pref)
     }
 
+    private fun changeCommandOnScreen(cmdObj: Command) {
+        cmdObj.pref?.apply {
+            title = cmdObj.name
+            summary = cmdObj.cmd
+        }
+    }
+
     override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
         setSettingsSummary()
         Settings.isChanged = true
@@ -111,6 +118,7 @@ class SettingsFragment : PreferenceFragment(), SharedPreferences.OnSharedPrefere
                         cmdObj.name = nameStr
                         cmdObj.cmd = cmdStr
                         cmdObj.showResult = showResultCheckBox?.isChecked ?: false
+                        changeCommandOnScreen(cmdObj)
                     }
 
                     Settings.saveCommandObjects(commandObjects)
