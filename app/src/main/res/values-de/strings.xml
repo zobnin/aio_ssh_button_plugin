@@ -4,7 +4,7 @@
     <string name="click_to_download">Klicken Sie hier zum Herunterladen</string>
     <string name="cancel">Stornieren</string>
     <string name="hostname">Hostname</string>
-    <string name="port">Hafen</string>
+    <string name="port">Port</string>
     <string name="user">Nutzer</string>
     <string name="password">Passwort</string>
     <string name="close">Schließen</string>
