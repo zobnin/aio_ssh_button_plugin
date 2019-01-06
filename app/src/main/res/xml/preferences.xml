@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <PreferenceCategory
+            android:key="settings"
+            android:title="@string/settings"
+    />
+
+    <EditTextPreference
+            android:key="host"
+            android:title="@string/hostname"
+    />
+    <EditTextPreference
+            android:key="port"
+            android:title="@string/port"
+    />
+    <EditTextPreference
+            android:key="user"
+            android:title="@string/user"
+    />
+    <EditTextPreference
+            android:key="password"
+            android:title="@string/password"
+    />
+    <Preference
+            android:key="add_command"
+            android:title="@string/add_command"
+            android:summary="@string/add_command_summary"
+    />
+
+    <PreferenceCategory
+            android:key="commands"
+            android:title="@string/commands"
+    />
+</PreferenceScreen>

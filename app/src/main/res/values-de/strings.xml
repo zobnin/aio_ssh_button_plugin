@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="new_version_available">Neue Version verfügbar: %1$s</string>
+    <string name="click_to_download">Klicken Sie hier zum Herunterladen</string>
+    <string name="cancel">Stornieren</string>
+    <string name="hostname">Hostname</string>
+    <string name="port">Port</string>
+    <string name="user">Nutzer</string>
+    <string name="password">Passwort</string>
+    <string name="close">Schließen</string>
+    <string name="done">Erledigt</string>
+    <string name="settings">die Einstellungen</string>
+    <string name="add_command">Befehl hinzufügen</string>
+    <string name="add_command_summary">Tippen Sie auf, um den Befehl hinzuzufügen</string>
+    <string name="commands">Befehle</string>
+    <string name="name_">Name:</string>
+    <string name="command_">Befehl:</string>
+    <string name="save">sparen</string>
+    <string name="delete">Löschen</string>
+    <string name="show_result">Zeige Ergebnis</string>
+</resources>

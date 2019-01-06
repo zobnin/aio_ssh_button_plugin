@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="new_version_available">Доступна новая версия: %1$s</string>
+    <string name="click_to_download">Нажмите, чтобы скачать</string>
+    <string name="cancel">Отменить</string>
+    <string name="hostname">Имя хоста</string>
+    <string name="port">Порт</string>
+    <string name="user">Пользователь</string>
+    <string name="password">Пароль</string>
+    <string name="close">Закрыть</string>
+    <string name="done">Готово</string>
+    <string name="settings">Настройки</string>
+    <string name="add_command">Добавить команду</string>
+    <string name="add_command_summary">Нажмите, чтобы добавить команду</string>
+    <string name="commands">Команды</string>
+    <string name="name_">Название:</string>
+    <string name="command_">Команда:</string>
+    <string name="save">Сохранить</string>
+    <string name="delete">Удалить</string>
+    <string name="show_result">Показывать результат</string>
+</resources>

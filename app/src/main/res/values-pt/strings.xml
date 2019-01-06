@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="new_version_available">Nova versão disponível: %1$s</string>
+    <string name="click_to_download">Clique para fazer o download</string>
+    <string name="cancel">Cancelar</string>
+    <string name="hostname">Nome de anfitrião</string>
+    <string name="port">Porta</string>
+    <string name="user">Do utilizador</string>
+    <string name="password">Senha</string>
+    <string name="close">Fechar</string>
+    <string name="done">Feito</string>
+    <string name="settings">Definições</string>
+    <string name="add_command">Adicionar comando</string>
+    <string name="add_command_summary">Toque para adicionar o comando</string>
+    <string name="commands">Comandos</string>
+    <string name="name_">Nome:</string>
+    <string name="command_">Comando:</string>
+    <string name="save">Salve </string>
+    <string name="delete">Excluir</string>
+    <string name="show_result">Mostrar resultado</string>
+</resources>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="new_version_available">Yeni sürüm mevcut: %1$s</string>
+    <string name="click_to_download">İndirmek İçin Tıklayın</string>
+    <string name="cancel">İptal etmek</string>
+    <string name="hostname">Ana bilgisayar adı</string>
+    <string name="port">Liman</string>
+    <string name="user">kullanıcı</string>
+    <string name="password">Parola</string>
+    <string name="close">kapatmak</string>
+    <string name="done">tamam</string>
+    <string name="settings">Ayarlar</string>
+    <string name="add_command">Komut ekle</string>
+    <string name="add_command_summary">Komut eklemek için dokunun</string>
+    <string name="commands">Komutları</string>
+    <string name="name_">Adı:</string>
+    <string name="command_">Komut:</string>
+    <string name="save">Kayıt etmek</string>
+    <string name="delete">silmek</string>
+    <string name="show_result">Sonucu göster</string>
+</resources>
