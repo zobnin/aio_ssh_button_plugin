@@ -1,0 +1,21 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="Settings" parent="@android:style/ThemeOverlay.Material.Dark">
+        <item name="android:colorAccent">@color/blue</item>
+    </style>
+
+    <!-- Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="textPrimary">#EEEEEE</color>
+    <color name="textSecondary">#BDBDBD</color>
+    <color name="textSecondary2">#9E9E9E</color>
+    <color name="textDrawer">#B3B3B3</color>
+    <color name="red">#F44336</color>
+    <color name="blue">#4FC3F7</color>
+    <color name="bg0">#9E9E9E</color>
+    <color name="bg1">#757575</color>
+    <color name="bg3">#424242</color>
+    <color name="bg4">#212121</color>
+    <color name="colorAccent">#4FC3F7</color>
+    <color name="monitor">#607D8B</color>
+</resources>
