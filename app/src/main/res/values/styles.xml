@@ -2,16 +2,8 @@
 
     <style name="Settings" parent="@android:style/ThemeOverlay.Material.Dark">
         <item name="android:colorAccent">@color/blue</item>
-        <item name="android:alertDialogTheme">@style/DialogTheme</item>
         <item name="colorControlActivated">@color/colorAccent</item>
         <item name="colorControlHighlight">@color/colorAccent</item>
-    </style>
-
-    <style name="DialogTheme" parent="ThemeOverlay.AppCompat.Dialog.Alert">
-        <item name="android:background">@color/bg4</item>
-        <item name="android:colorAccent">@color/blue</item>
-        <item name="android:colorPrimary">@color/blue</item>
-        <item name="android:textColorPrimary">@color/textPrimary</item>
     </style>
 
     <!-- Colors -->
