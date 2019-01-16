@@ -3,8 +3,6 @@
     <style name="Settings" parent="@android:style/ThemeOverlay.Material.Dark">
         <item name="android:colorAccent">@color/blue</item>
         <item name="android:alertDialogTheme">@style/DialogTheme</item>
-        <item name="colorControlActivated">@color/colorAccent</item>
-        <item name="colorControlHighlight">@color/colorAccent</item>
     </style>
 
     <style name="DialogTheme" parent="@android:style/ThemeOverlay.Material.Dialog.Alert">
