@@ -16,6 +16,8 @@ object Settings {
     var pluginUid by Preference("", "plugin_uid")
     var commandIds by Preference("", "cmd_ids")
 
+    var showBatteryOptWarning by Preference(true, "show_battery_opt_warning")
+
     fun getCommandsObjects(): List<Command> {
         try {
             if (!Settings.commands.contains("‖")) return emptyList()
