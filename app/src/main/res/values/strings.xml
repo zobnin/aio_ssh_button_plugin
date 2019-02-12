@@ -19,4 +19,7 @@
     <string name="save">Save</string>
     <string name="delete">Delete</string>
     <string name="show_result">Show result</string>
+    <string name="warning">Warning</string>
+    <string name="chinese_pm_warning">You use a smartphone with a system that suppress the work of background applications. For this reason, the AIO Plugin can not work properly. Click "Open Settings" and add plugin to the list of exceptions.</string>
+    <string name="open_settings">Open settings</string>
 </resources>
