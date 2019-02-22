@@ -187,13 +187,18 @@ class PluginReceiver : BroadcastReceiver() {
     }
 
     private fun getCommandById(id: Int): Command? {
-        val ids = stringToIds(Settings.commandIds)
+        try {
+            val ids = stringToIds(Settings.commandIds)
 
-        if (ids.isEmpty()) {
+            if (ids.isEmpty()) {
+                return null
+            }
+
+            val smsIdx = ids.indexOf(id)
+            return Settings.getCommandsObjects()[smsIdx]
+        } catch (e: Exception) {
+            e.printStackTrace()
             return null
         }
-
-        val smsIdx = ids.indexOf(id)
-        return Settings.getCommandsObjects()[smsIdx]
     }
 }
