@@ -30,4 +30,5 @@
     <string name="save">Salvare</string>
     <string name="delete">Elimina</string>
     <string name="show_result">Mostra il risultato</string>
+    <string name="invalid_uid">UID non valido. Reinstallare il plugin</string>
 </resources>

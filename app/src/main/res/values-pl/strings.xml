@@ -18,4 +18,5 @@
     <string name="save">Zapisać</string>
     <string name="delete">Kasować</string>
     <string name="show_result">Pokaż wynik</string>
+    <string name="invalid_uid">Nieprawidłowy identyfikator UID. Zainstaluj ponownie wtyczkę</string>
 </resources>
