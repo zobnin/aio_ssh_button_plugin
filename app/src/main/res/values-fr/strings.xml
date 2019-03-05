@@ -18,4 +18,5 @@
     <string name="save">sauvegarder</string>
     <string name="delete">Effacer</string>
     <string name="show_result">Afficher le résultat</string>
+    <string name="invalid_uid">UID invalide. Réinstaller le plugin</string>
 </resources>

@@ -18,4 +18,5 @@
     <string name="save">Сохранить</string>
     <string name="delete">Удалить</string>
     <string name="show_result">Показывать результат</string>
+    <string name="invalid_uid">Неверный UID. Переустановите плагин</string>
 </resources>
