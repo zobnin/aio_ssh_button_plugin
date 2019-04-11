@@ -18,5 +18,4 @@
     <string name="save">保存</string>
     <string name="delete">删除</string>
     <string name="show_result">显示结果</string>
-    <string name="invalid_uid">无效的UID。重新安装插件</string>
 </resources>
