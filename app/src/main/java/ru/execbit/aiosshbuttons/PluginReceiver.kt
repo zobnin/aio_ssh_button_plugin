@@ -11,7 +11,6 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import ru.execbit.aiolauncher.models.PluginAction
-import ru.execbit.aiolauncher.models.PluginError
 import ru.execbit.aiolauncher.models.PluginIntentActions
 import ru.execbit.aiolauncher.models.PluginResult
 import ru.execbit.aiolauncher.plugin.*
@@ -29,15 +28,6 @@ class PluginReceiver : BroadcastReceiver() {
         CoroutineScope(Dispatchers.Default).launch {
             if (intent == null) return@launch
             if (!checkUid(intent)) return@launch
-
-            if (!checkUid(intent)) {
-                val result = PluginResult(
-                    from = cn,
-                    data = PluginError(3, context.getString(R.string.invalid_uid))
-                )
-                context.sendPluginResult(result)
-                return@launch
-            }
 
             when (intent.action) {
                 PluginIntentActions.PLUGIN_GET_DATA -> processGetData(context, intent)
@@ -76,6 +66,7 @@ class PluginReceiver : BroadcastReceiver() {
     private fun execCommand(context: Context, cmd: Command) {
         val jsch = JSch()
         var session: Session? = null
+
 
         try {
             session = jsch.getSession(Settings.user, Settings.host, Settings.port.toInt())

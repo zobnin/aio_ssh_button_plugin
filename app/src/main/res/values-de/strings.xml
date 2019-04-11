@@ -18,5 +18,4 @@
     <string name="save">sparen</string>
     <string name="delete">Löschen</string>
     <string name="show_result">Zeige Ergebnis</string>
-    <string name="invalid_uid">Ungültige UID Plugin neu installieren</string>
 </resources>

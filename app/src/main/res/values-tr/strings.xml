@@ -18,5 +18,4 @@
     <string name="save">Kayıt etmek</string>
     <string name="delete">silmek</string>
     <string name="show_result">Sonucu göster</string>
-    <string name="invalid_uid">Geçersiz UID Eklentiyi yeniden yükle</string>
 </resources>
