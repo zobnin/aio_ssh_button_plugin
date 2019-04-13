@@ -69,7 +69,7 @@ class PluginReceiver : BroadcastReceiver() {
 
 
         try {
-            session = jsch.getSession(Settings.user, Settings.host, Settings.port.toInt())
+            session = jsch.getSession(Settings.user.trim(), Settings.host.trim(), Settings.port.toInt())
             session.setPassword(Settings.password)
 
             // Avoid asking for key confirmation
