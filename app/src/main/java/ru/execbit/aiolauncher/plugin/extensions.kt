@@ -9,7 +9,7 @@ import ru.execbit.aiosshbuttons.Settings
 fun Context.sendPluginResult(result: PluginResult) {
     val i = Intent(PluginIntentActions.AIO_UPDATE).apply {
         `package` = "ru.execbit.aiolauncher"
-        putExtra("api", 1)
+        putExtra("api", 2)
         putExtra("result", result)
         putExtra("uid", Settings.pluginUid)
     }

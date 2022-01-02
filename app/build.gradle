@@ -7,11 +7,11 @@ androidExtensions {
 }
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 30
     defaultConfig {
         applicationId "ru.execbit.aiosshbuttons"
         minSdkVersion 21
-        targetSdkVersion 28
+        targetSdkVersion 30
         versionCode 10
         versionName "1.0.9"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
@@ -24,14 +24,14 @@ android {
     }
 }
 
-final ANKO_VERSION = '0.10.7-rc13'
+final ANKO_VERSION = '0.10.8'
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.0.0'
-    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.0.0'
-    implementation "org.jetbrains.anko:anko-sdk19:$ANKO_VERSION"
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.0'
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.0'
+    implementation "org.jetbrains.anko:anko-sdk21:$ANKO_VERSION"
     implementation 'com.mohamadamin.kpreferences:kpreferences:0.1'
     implementation 'com.squareup.okhttp3:okhttp:3.12.0'
     implementation 'com.jcraft:jsch:0.1.55'
