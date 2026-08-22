@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- AndroidX Preference otherwise reserves a 56dp icon column on phones
+         wider than 360dp, even though this screen does not use icons. -->
+    <bool name="config_materialPreferenceIconSpaceReserved">false</bool>
+</resources>

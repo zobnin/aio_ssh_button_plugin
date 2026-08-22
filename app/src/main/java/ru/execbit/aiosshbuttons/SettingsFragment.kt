@@ -1,13 +1,17 @@
 package ru.execbit.aiosshbuttons
 
-import android.app.AlertDialog
 import android.content.SharedPreferences
 import android.os.Bundle
 import android.text.InputType
+import android.view.View
 import android.widget.CheckBox
 import android.widget.EditText
 import android.widget.LinearLayout
 import android.widget.TextView
+import androidx.appcompat.app.AlertDialog
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.preference.Preference
 import androidx.preference.PreferenceCategory
 import androidx.preference.PreferenceFragmentCompat
@@ -29,6 +33,30 @@ class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedP
 
         setSettingsSummary()
         addCommandsToScreen()
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val initialLeft = listView.paddingLeft
+        val initialTop = listView.paddingTop
+        val initialRight = listView.paddingRight
+        val initialBottom = listView.paddingBottom
+
+        ViewCompat.setOnApplyWindowInsetsListener(listView) { list, windowInsets ->
+            val insets = windowInsets.getInsets(
+                WindowInsetsCompat.Type.systemBars() or
+                    WindowInsetsCompat.Type.displayCutout()
+            )
+            list.updatePadding(
+                left = initialLeft + insets.left,
+                top = initialTop + insets.top,
+                right = initialRight + insets.right,
+                bottom = initialBottom + insets.bottom
+            )
+            windowInsets
+        }
+        ViewCompat.requestApplyInsets(listView)
     }
 
     private fun setSettingsSummary() {
