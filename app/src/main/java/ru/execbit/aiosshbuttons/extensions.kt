@@ -1,12 +1,14 @@
 package ru.execbit.aiosshbuttons
 
 import android.widget.LinearLayout
-import org.jetbrains.anko.*
+import kotlin.math.roundToInt
 
 fun LinearLayout.setDefaultPaddingForDialog() {
-    leftPadding = dip(24)
-    rightPadding = dip(24)
-    topPadding = dip(16)
-    bottomPadding = dip(16)
+    val density = resources.displayMetrics.density
+    setPadding(
+        (24 * density).roundToInt(),
+        (16 * density).roundToInt(),
+        (24 * density).roundToInt(),
+        (16 * density).roundToInt()
+    )
 }
-

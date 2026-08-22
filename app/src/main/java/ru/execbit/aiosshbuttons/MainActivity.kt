@@ -1,27 +1,35 @@
 package ru.execbit.aiosshbuttons
 
-import android.annotation.SuppressLint
+import android.Manifest
 import android.app.AlertDialog
 import android.content.Intent
-import android.graphics.Color
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
-import android.preference.PreferenceActivity
-import android.view.WindowManager
+import android.os.PowerManager
+import android.provider.Settings as SystemSettings
+import androidx.annotation.RequiresApi
+import androidx.core.net.toUri
+import androidx.fragment.app.FragmentActivity
 
-@SuppressLint("ExportedPreferenceActivity")
-class MainActivity : PreferenceActivity() {
+class MainActivity : FragmentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
-        window.statusBarColor = Color.TRANSPARENT
-        window.navigationBarColor = Color.TRANSPARENT
-
-        fragmentManager.beginTransaction()
+        supportFragmentManager.beginTransaction()
             .replace(android.R.id.content, SettingsFragment())
             .commit()
 
-        if (android.os.Build.VERSION.SDK_INT >= 23 && Settings.showBatteryOptWarning) {
+        if (Build.VERSION.SDK_INT >= 33 &&
+            checkSelfPermission(Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED
+        ) {
+            requestPermissions(arrayOf(Manifest.permission.POST_NOTIFICATIONS), 1)
+        }
+
+        if (Build.VERSION.SDK_INT >= 23 &&
+            Settings.showBatteryOptWarning &&
+            !isIgnoringBatteryOptimizations()
+        ) {
             showBatteryOptDialog()
             Settings.showBatteryOptWarning = false
         }
@@ -33,9 +41,13 @@ class MainActivity : PreferenceActivity() {
             setMessage(R.string.chinese_pm_warning)
             setCancelable(false)
 
-            setPositiveButton(R.string.open_settings) { _, _ ->
+            setPositiveButton(R.string.allow) { _, _ ->
                 try {
-                    startActivity(Intent("android.settings.IGNORE_BATTERY_OPTIMIZATION_SETTINGS"))
+                    startActivity(
+                        Intent(SystemSettings.ACTION_REQUEST_IGNORE_BATTERY_OPTIMIZATIONS).apply {
+                            data = "package:$packageName".toUri()
+                        }
+                    )
                 } catch (e: Exception) {
                     e.printStackTrace()
                 }
@@ -46,5 +58,11 @@ class MainActivity : PreferenceActivity() {
             create()
             show()
         }
+    }
+
+    @RequiresApi(Build.VERSION_CODES.M)
+    private fun isIgnoringBatteryOptimizations(): Boolean {
+        val powerManager = getSystemService(POWER_SERVICE) as PowerManager
+        return powerManager.isIgnoringBatteryOptimizations(packageName)
     }
 }

@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
+import android.os.Build
 import com.jcraft.jsch.ChannelExec
 import com.jcraft.jsch.JSch
 import com.jcraft.jsch.Session
@@ -39,10 +40,17 @@ class PluginReceiver : BroadcastReceiver() {
     }
 
     private fun processAction(context: Context, intent: Intent) {
-        intent.getParcelableExtra<PluginAction>("action")?.let { action ->
+        val action = if (Build.VERSION.SDK_INT >= 33) {
+            intent.getParcelableExtra("action", PluginAction::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra("action")
+        }
+
+        action?.let {
             try {
-                when (action.context) {
-                    "tap" -> processTapAction(context, action)
+                when (it.context) {
+                    "tap" -> processTapAction(context, it)
                     else -> {
                     }
                 }
@@ -70,7 +78,7 @@ class PluginReceiver : BroadcastReceiver() {
 
         try {
             session = jsch.getSession(Settings.user.trim(), Settings.host.trim(), Settings.port.toInt())
-            session.setPassword(Settings.password)
+            session.setPassword(Settings.password.toByteArray())
 
             // Avoid asking for key confirmation
             val prop = Properties()

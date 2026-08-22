@@ -18,4 +18,7 @@
     <string name="save">Zapisać</string>
     <string name="delete">Kasować</string>
     <string name="show_result">Pokaż wynik</string>
+    <string name="warning">Ostrzeżenie</string>
+    <string name="chinese_pm_warning">Aby niezawodnie wykonywać polecenia SSH w tle, zezwól wtyczce AIO SSH Buttons na pomijanie optymalizacji baterii.</string>
+    <string name="allow">Zezwól</string>
 </resources>

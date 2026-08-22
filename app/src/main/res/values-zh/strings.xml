@@ -18,4 +18,7 @@
     <string name="save">保存</string>
     <string name="delete">删除</string>
     <string name="show_result">显示结果</string>
+    <string name="warning">警告</string>
+    <string name="chinese_pm_warning">为确保在后台可靠地运行 SSH 命令，请允许 AIO SSH Buttons 插件忽略电池优化。</string>
+    <string name="allow">允许</string>
 </resources>

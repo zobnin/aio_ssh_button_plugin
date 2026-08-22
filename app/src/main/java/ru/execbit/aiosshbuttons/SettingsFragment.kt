@@ -1,27 +1,28 @@
 package ru.execbit.aiosshbuttons
 
+import android.app.AlertDialog
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.preference.Preference
-import android.preference.PreferenceCategory
-import android.preference.PreferenceFragment
 import android.text.InputType
 import android.widget.CheckBox
 import android.widget.EditText
-import org.jetbrains.anko.*
+import android.widget.LinearLayout
+import android.widget.TextView
+import androidx.preference.Preference
+import androidx.preference.PreferenceCategory
+import androidx.preference.PreferenceFragmentCompat
 
-class SettingsFragment : PreferenceFragment(), SharedPreferences.OnSharedPreferenceChangeListener {
+class SettingsFragment : PreferenceFragmentCompat(), SharedPreferences.OnSharedPreferenceChangeListener {
     private lateinit var commandObjects: MutableList<Command>
     private lateinit var commandsCategory: PreferenceCategory
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        addPreferencesFromResource(R.xml.preferences)
+    override fun onCreatePreferences(savedInstanceState: Bundle?, rootKey: String?) {
+        setPreferencesFromResource(R.xml.preferences, rootKey)
 
         commandObjects = Settings.getCommandsObjects().toMutableList()
-        commandsCategory = findPreference("commands") as PreferenceCategory
+        commandsCategory = requireNotNull(findPreference("commands"))
 
-        findPreference("add_command")?.setOnPreferenceClickListener {
+        findPreference<Preference>("add_command")?.setOnPreferenceClickListener {
             showEditCommandDialog()
             true
         }
@@ -31,10 +32,10 @@ class SettingsFragment : PreferenceFragment(), SharedPreferences.OnSharedPrefere
     }
 
     private fun setSettingsSummary() {
-        findPreference("host")?.summary = Settings.host
-        findPreference("port")?.summary = Settings.port
-        findPreference("user")?.summary = Settings.user
-        findPreference("password")?.summary = "********"
+        findPreference<Preference>("host")?.summary = Settings.host
+        findPreference<Preference>("port")?.summary = Settings.port
+        findPreference<Preference>("user")?.summary = Settings.user
+        findPreference<Preference>("password")?.summary = "********"
     }
 
     private fun addCommandsToScreen() {
@@ -59,7 +60,7 @@ class SettingsFragment : PreferenceFragment(), SharedPreferences.OnSharedPrefere
     }
 
     private fun removeCommandFromScreen(cmdObj: Command) {
-        commandsCategory.removePreference(cmdObj.pref)
+        cmdObj.pref?.let(commandsCategory::removePreference)
     }
 
     private fun changeCommandOnScreen(cmdObj: Command) {
@@ -69,64 +70,58 @@ class SettingsFragment : PreferenceFragment(), SharedPreferences.OnSharedPrefere
         }
     }
 
-    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String) {
+    override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences, key: String?) {
         setSettingsSummary()
         Settings.isChanged = true
     }
 
     private fun showEditCommandDialog(cmdObj: Command? = null) {
-        var nameView: EditText? = null
-        var cmdView: EditText? = null
-        var showResultCheckBox: CheckBox? = null
+        val context = requireContext()
+        val content = LinearLayout(context).apply {
+            orientation = LinearLayout.VERTICAL
+            setDefaultPaddingForDialog()
+        }
+        val nameView = EditText(context).apply {
+            setText(cmdObj?.name.orEmpty())
+            setSelection(text.length)
+            inputType = InputType.TYPE_CLASS_TEXT
+        }
+        val cmdView = EditText(context).apply {
+            setText(cmdObj?.cmd.orEmpty())
+            setSelection(text.length)
+            inputType = InputType.TYPE_CLASS_TEXT
+        }
+        val showResultCheckBox = CheckBox(context).apply {
+            setText(R.string.show_result)
+            isChecked = cmdObj?.showResult ?: false
+        }
 
-        alert {
-            title = getString(R.string.add_command)
-            customView {
-                verticalLayout {
-                    setDefaultPaddingForDialog()
+        content.addView(TextView(context).apply { setText(R.string.name_) })
+        content.addView(nameView)
+        content.addView(TextView(context).apply { setText(R.string.command_) })
+        content.addView(cmdView)
+        content.addView(showResultCheckBox)
 
-                    textView { setText(R.string.name_) }
-                    nameView = editText {
-                        setText(cmdObj?.name ?: "")
-                        inputType = InputType.TYPE_TEXT_VARIATION_FILTER
-                    }
+        val dialog = AlertDialog.Builder(context)
+            .setTitle(R.string.add_command)
+            .setView(content)
+            .setPositiveButton(R.string.save) { _, _ ->
+                val nameStr = nameView.text.toString()
+                val cmdStr = cmdView.text.toString()
 
-                    nameView?.post {
-                        nameView?.setSelection(nameView?.text?.length ?: 0)
-                    }
-
-                    textView { setText(R.string.command_) }
-                    cmdView = editText {
-                        setText(cmdObj?.cmd ?: "")
-                        setSelection(this.text.length)
-                        inputType = InputType.TYPE_TEXT_VARIATION_FILTER
-                    }
-
-                    cmdView?.post {
-                        cmdView?.setSelection(cmdView?.text?.length ?: 0)
-                    }
-
-                    showResultCheckBox = checkBox {
-                        setText(R.string.show_result)
-                        isChecked = cmdObj?.showResult ?: false
-                    }
-                }
-            }
-            positiveButton(R.string.save) {
-                val nameStr = nameView?.text.toString()
-                val cmdStr = cmdView?.text.toString()
-
-                if (nameStr.isNotEmpty() && nameStr.isNotEmpty()) {
+                if (nameStr.isNotEmpty() && cmdStr.isNotEmpty()) {
                     if (cmdObj == null) {
-                        val commandObj = Command(nameStr, cmdStr,
-                            showResult = showResultCheckBox?.isChecked ?: false)
-
+                        val commandObj = Command(
+                            nameStr,
+                            cmdStr,
+                            showResult = showResultCheckBox.isChecked
+                        )
                         addCommandToScreen(commandObj)
                         commandObjects.add(commandObj)
                     } else {
                         cmdObj.name = nameStr
                         cmdObj.cmd = cmdStr
-                        cmdObj.showResult = showResultCheckBox?.isChecked ?: false
+                        cmdObj.showResult = showResultCheckBox.isChecked
                         changeCommandOnScreen(cmdObj)
                     }
 
@@ -134,30 +129,30 @@ class SettingsFragment : PreferenceFragment(), SharedPreferences.OnSharedPrefere
                     Settings.isChanged = true
                 }
             }
-            if (cmdObj == null) {
-                negativeButton(R.string.cancel) {
-                    // nop
-                }
-            } else {
-                negativeButton(R.string.delete) {
-                    removeCommandFromScreen(cmdObj)
-                    commandObjects.remove(cmdObj)
-                    Settings.saveCommandObjects(commandObjects)
-                    Settings.isChanged = true
-                }
+
+        if (cmdObj == null) {
+            dialog.setNegativeButton(R.string.cancel) { _, _ -> }
+        } else {
+            dialog.setNegativeButton(R.string.delete) { _, _ ->
+                removeCommandFromScreen(cmdObj)
+                commandObjects.remove(cmdObj)
+                Settings.saveCommandObjects(commandObjects)
+                Settings.isChanged = true
             }
-        }.show()
+        }
+
+        dialog.show()
     }
 
     override fun onResume() {
         super.onResume()
         preferenceManager.sharedPreferences
-            .registerOnSharedPreferenceChangeListener(this)
+            ?.registerOnSharedPreferenceChangeListener(this)
     }
 
     override fun onPause() {
         super.onPause()
         preferenceManager.sharedPreferences
-            .unregisterOnSharedPreferenceChangeListener(this)
+            ?.unregisterOnSharedPreferenceChangeListener(this)
     }
 }

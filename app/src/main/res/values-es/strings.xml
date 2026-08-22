@@ -18,4 +18,7 @@
     <string name="save">Salvar</string>
     <string name="delete">Borrar</string>
     <string name="show_result">Mostrar resultado</string>
+    <string name="warning">Advertencia</string>
+    <string name="chinese_pm_warning">Para ejecutar comandos SSH de forma fiable en segundo plano, permite que el complemento AIO SSH Buttons ignore las optimizaciones de batería.</string>
+    <string name="allow">Permitir</string>
 </resources>

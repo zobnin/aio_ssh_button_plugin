@@ -3,7 +3,7 @@ package ru.execbit.aiolauncher.models
 import android.content.ComponentName
 import android.graphics.Bitmap
 import android.os.Parcelable
-import kotlinx.android.parcel.Parcelize
+import kotlinx.parcelize.Parcelize
 
 object PluginIntentActions {
     const val PLUGIN_SETTINGS = "ru.execbit.aiolauncher.PLUGIN_SETTINGS"
@@ -133,5 +133,4 @@ data class PluginAction(
     val context: String = "tap",
     val selectedIds: List<Int>
 ): Parcelable
-
 

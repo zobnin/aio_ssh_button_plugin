@@ -18,4 +18,7 @@
     <string name="save">Kayıt etmek</string>
     <string name="delete">silmek</string>
     <string name="show_result">Sonucu göster</string>
+    <string name="warning">Uyarı</string>
+    <string name="chinese_pm_warning">SSH komutlarını arka planda güvenilir biçimde çalıştırmak için AIO SSH Buttons eklentisinin pil optimizasyonlarını yok saymasına izin verin.</string>
+    <string name="allow">İzin ver</string>
 </resources>

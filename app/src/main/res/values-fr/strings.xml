@@ -18,4 +18,7 @@
     <string name="save">sauvegarder</string>
     <string name="delete">Effacer</string>
     <string name="show_result">Afficher le résultat</string>
+    <string name="warning">Avertissement</string>
+    <string name="chinese_pm_warning">Pour exécuter les commandes SSH de manière fiable en arrière-plan, autorisez le module AIO SSH Buttons à ignorer les optimisations de la batterie.</string>
+    <string name="allow">Autoriser</string>
 </resources>

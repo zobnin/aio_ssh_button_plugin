@@ -5,21 +5,20 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
 import android.os.Build
-import com.mohamadamin.kpreferences.base.KPreferenceManager
-import com.singhajit.sherlock.core.Sherlock
 
-class App: Application() {
+class App : Application() {
     companion object {
-        var PACKAGE_NAME: String? = null
+        const val NOTIFICATION_CHANNEL_ID = "main"
+
+        lateinit var instance: App
+            private set
     }
 
     override fun onCreate() {
         super.onCreate()
-        PACKAGE_NAME = packageName
+        instance = this
 
         createNotificationChannel()
-        Sherlock.init(this)
-        KPreferenceManager.initialize(this, name = "${packageName}_preferences")
     }
 
     private fun createNotificationChannel() {
@@ -29,7 +28,7 @@ class App: Application() {
             val name = "AIO SSH Buttons Plugin"
             val descriptionText = "AIO SSH Buttons Plugin"
             val importance = NotificationManager.IMPORTANCE_LOW
-            val channel = NotificationChannel("main", name, importance).apply {
+            val channel = NotificationChannel(NOTIFICATION_CHANNEL_ID, name, importance).apply {
                 description = descriptionText
             }
             // Register the channel with the system

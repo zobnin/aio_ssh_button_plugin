@@ -1,6 +1,6 @@
 package ru.execbit.aiosshbuttons
 
-import android.preference.Preference
+import androidx.preference.Preference
 
 data class Command(
     var name: String,

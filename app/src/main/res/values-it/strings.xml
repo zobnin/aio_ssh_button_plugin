@@ -30,4 +30,7 @@
     <string name="save">Salvare</string>
     <string name="delete">Elimina</string>
     <string name="show_result">Mostra il risultato</string>
+    <string name="warning">Avviso</string>
+    <string name="chinese_pm_warning">Per eseguire in modo affidabile i comandi SSH in background, consenti al plugin AIO SSH Buttons di ignorare le ottimizzazioni della batteria.</string>
+    <string name="allow">Consenti</string>
 </resources>

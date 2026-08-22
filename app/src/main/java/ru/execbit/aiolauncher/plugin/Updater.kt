@@ -1,15 +1,16 @@
 package ru.execbit.aiolauncher.plugin
 
-import android.app.Notification
 import android.app.NotificationManager
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
+import androidx.core.app.NotificationCompat
+import androidx.core.net.toUri
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import org.json.JSONObject
 import ru.execbit.aiosshbuttons.App
+import ru.execbit.aiosshbuttons.BuildConfig
 import ru.execbit.aiosshbuttons.R
 import ru.execbit.aiosshbuttons.Settings
 import java.util.*
@@ -22,8 +23,8 @@ object Updater {
     )
 
     private const val REPO_HOST = "https://execbit.ru/aiolauncher/"
-    private val PKG_URL = REPO_HOST + App.PACKAGE_NAME + ".apk"
-    private val META_URL = REPO_HOST + App.PACKAGE_NAME + ".meta"
+    private val packageUrl = REPO_HOST + BuildConfig.APPLICATION_ID + ".apk"
+    private val metaUrl = REPO_HOST + BuildConfig.APPLICATION_ID + ".meta"
 
     fun checkForNewVersionAndShowNotify(context: Context) {
         val time = Date().time
@@ -54,15 +55,17 @@ object Updater {
     private fun getPluginMeta(): PluginMeta? {
         try {
             val request = Request.Builder()
-                .url(META_URL)
+                .url(metaUrl)
                 .build()
 
             val okHttpClient = OkHttpClient.Builder()
                 .retryOnConnectionFailure(false)
                 .build()
 
-            okHttpClient.newCall(request).execute().body()?.let {
-                return parseJson(it.string())
+            okHttpClient.newCall(request).execute().use { response ->
+                if (response.isSuccessful) {
+                    return parseJson(response.body.string())
+                }
             }
 
             return null
@@ -75,14 +78,14 @@ object Updater {
     private fun showNotification(context: Context, meta: PluginMeta) {
         val browserIntent = Intent().apply {
             action = Intent.ACTION_VIEW
-            data = Uri.parse(PKG_URL)
+            data = packageUrl.toUri()
             flags = Intent.FLAG_ACTIVITY_NEW_TASK
         }
 
         val pendingIntent
-                = PendingIntent.getActivity(context, 0, browserIntent, 0)
+                = PendingIntent.getActivity(context, 0, browserIntent, PendingIntent.FLAG_IMMUTABLE)
 
-        val notification = Notification.Builder(context)
+        val notification = NotificationCompat.Builder(context, App.NOTIFICATION_CHANNEL_ID)
             .setContentTitle(context.getString(R.string.new_version_available, meta.version))
             .setContentText(context.getString(R.string.click_to_download))
             .setSmallIcon(R.drawable.ic_cloud_download_black_24dp)

@@ -1,19 +1,24 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          xmlns:tools="http://schemas.android.com/tools" package="ru.execbit.aiosshbuttons">
+          xmlns:tools="http://schemas.android.com/tools">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS"/>
 
     <application
             android:name=".App"
             android:allowBackup="false"
-            tools:replace="android:allowBackup"
+            android:dataExtractionRules="@xml/backup_rules"
+            android:fullBackupContent="@xml/backup_rules_legacy"
             android:label="@string/app_name"
             android:icon="@mipmap/ic_launcher"
+            android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             tools:ignore="GoogleAppIndexingWarning">
         <meta-data android:name="android.max_aspect" android:value="2.1"/>
 
         <activity android:name=".MainActivity"
+                  android:exported="true"
                   android:theme="@style/Settings"
         >
             <intent-filter>
@@ -28,6 +33,7 @@
 
         <receiver
                 android:name=".PluginReceiver"
+                android:exported="true"
                 android:label="SSH Buttons">
             <intent-filter>
                 <action android:name="ru.execbit.aiolauncher.PLUGIN_GET_DATA"/>
